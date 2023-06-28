@@ -54,13 +54,18 @@ const dropDown3 = document.createElement("SELECT")
 dropDown3.setAttribute("id", "class")
 document.getElementById("card")?.appendChild(dropDown3)
 
-let classList: string [] = ["Wizard", "Warrior"]
+let classList: string [] = ["Select Class","Wizard", "Warrior"]
 for (let index = 0; index < classList.length; index++) {
     let option = document.createElement("option")
-    option.setAttribute("value", classList[index])
+    if (index === 0) {
+        option.setAttribute("value", "none")
+    } else {
+        option.setAttribute("value", classList[index])
+    }
     option.text = classList[index]
     dropDown3.appendChild(option)
 }
+
 const characterImage = document.createElement("img");
 characterImage.setAttribute("id", "characterImage");
 document.getElementById("pictures")?.appendChild(characterImage);
@@ -85,14 +90,15 @@ function changeImgClass() {
     } else if (classValue === "Warrior") {
         classImage?.setAttribute("src", "img/warrior.jpg")
     } else {
-        classImage?.setAttribute("src", "")
+        classImage?.setAttribute("src", "img/default_witcher.png")
       }
      
 }
 const raceImage = document.getElementById("characterImage")
 raceImage?.setAttribute("src", "img/default.jpg")
 
-
+const classImage = document.getElementById("classImage")
+classImage?.setAttribute("src", "img/default_witcher.png")
 
 const characterGender = document.getElementById("gender")
 const characterRace = document.getElementById("race")

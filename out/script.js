@@ -46,10 +46,15 @@ for (let index = 0; index < raceList.length; index++) {
 const dropDown3 = document.createElement("SELECT");
 dropDown3.setAttribute("id", "class");
 (_e = document.getElementById("card")) === null || _e === void 0 ? void 0 : _e.appendChild(dropDown3);
-let classList = ["Wizard", "Warrior"];
+let classList = ["Select Class", "Wizard", "Warrior"];
 for (let index = 0; index < classList.length; index++) {
     let option = document.createElement("option");
-    option.setAttribute("value", classList[index]);
+    if (index === 0) {
+        option.setAttribute("value", "none");
+    }
+    else {
+        option.setAttribute("value", classList[index]);
+    }
     option.text = classList[index];
     dropDown3.appendChild(option);
 }
@@ -62,9 +67,9 @@ pictures2.setAttribute("id", "classImage");
 const classSelect = document.getElementById("class");
 classSelect === null || classSelect === void 0 ? void 0 : classSelect.addEventListener("change", changeImgClass);
 function changeImgClass() {
-    const classSelected = document.getElementById("class");
-    const classValue = classSelected === null || classSelected === void 0 ? void 0 : classSelected.value;
-    const classImage = document.getElementById("classImage");
+    let classSelected = document.getElementById("class");
+    let classValue = classSelected === null || classSelected === void 0 ? void 0 : classSelected.value;
+    let classImage = document.getElementById("classImage");
     if (classValue === "Wizard") {
         classImage === null || classImage === void 0 ? void 0 : classImage.setAttribute("src", "img/wizard.png");
     }
@@ -72,20 +77,22 @@ function changeImgClass() {
         classImage === null || classImage === void 0 ? void 0 : classImage.setAttribute("src", "img/warrior.jpg");
     }
     else {
-        classImage === null || classImage === void 0 ? void 0 : classImage.setAttribute("src", "");
+        classImage === null || classImage === void 0 ? void 0 : classImage.setAttribute("src", "img/default_witcher.png");
     }
 }
 const raceImage = document.getElementById("characterImage");
 raceImage === null || raceImage === void 0 ? void 0 : raceImage.setAttribute("src", "img/default.jpg");
+const classImage = document.getElementById("classImage");
+classImage === null || classImage === void 0 ? void 0 : classImage.setAttribute("src", "img/default_witcher.png");
 const characterGender = document.getElementById("gender");
 const characterRace = document.getElementById("race");
 characterRace === null || characterRace === void 0 ? void 0 : characterRace.addEventListener("change", characterImgRace);
 characterGender === null || characterGender === void 0 ? void 0 : characterGender.addEventListener("change", characterImgRace);
 function characterImgRace() {
-    const chosenRace = document.getElementById("race");
-    const chosenGender = document.getElementById("gender");
-    const raceValue = chosenRace === null || chosenRace === void 0 ? void 0 : chosenRace.value;
-    const genderValue = chosenGender === null || chosenGender === void 0 ? void 0 : chosenGender.value;
+    let chosenRace = document.getElementById("race");
+    let chosenGender = document.getElementById("gender");
+    let raceValue = chosenRace === null || chosenRace === void 0 ? void 0 : chosenRace.value;
+    let genderValue = chosenGender === null || chosenGender === void 0 ? void 0 : chosenGender.value;
     if (raceValue === "Centaur" && genderValue == "Female")
         raceImage === null || raceImage === void 0 ? void 0 : raceImage.setAttribute("src", "img/centaur_female.jpg");
     if (raceValue === "Centaur" && genderValue == "Male")
