@@ -58,7 +58,7 @@ document.getElementById("pictures")?.appendChild(characterImage);
 
 const pictures2 = document.createElement("IMG")
 pictures2.setAttribute("id","classImage" )
-document.getElementById("pictures")?.appendChild(pictures2)
+document.getElementById("card")?.appendChild(pictures2)
 
 
 
@@ -84,6 +84,7 @@ function changeImgClass() {
 const characterGender = document.getElementById("gender")
 const characterRace = document.getElementById("race")
 characterRace?.addEventListener("change", characterImgRace)
+characterGender?.addEventListener("change", characterImgRace)
 
 function characterImgRace() {
     const chosenRace = document.getElementById("race");

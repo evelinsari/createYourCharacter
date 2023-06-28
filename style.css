@@ -36,10 +36,46 @@ body {
     background-repeat: no-repeat;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    
     
 }
 
+#nameValue {
+    text-decoration: underline;
+    position: relative;
+    color: bisque;
+    position: relative;
+    left: 0rem;
+    bottom: 10rem;
+    font-size: 2rem;
+    
+}
+#card {
+    display: flex;
+    flex-direction: column;
+    width: 15%;
+    margin-left: 5rem;
+    row-gap: 1rem;
+}
+
+#pictures{
+    width:40%;
+    margin-left: 5rem;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#characterImage {
+    width: 300px;
+    height: 500px; 
+}
+#classImage{
+    width: 150px;
+    height: 150px;
+    margin-top: 2rem;
+}
+
+/*
 #card {
     display: flex;
     flex-direction: column;
@@ -76,3 +112,4 @@ body {
     font-size: 2rem;
     color: bisque;
 }
+*/
