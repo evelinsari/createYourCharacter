@@ -15,10 +15,15 @@ const dropDown = document.createElement("SELECT");
 dropDown.setAttribute("id", "gender");
 dropDown.setAttribute("id", "gender");
 (_c = document.getElementById("card")) === null || _c === void 0 ? void 0 : _c.appendChild(dropDown);
-let genderList = ["Female", "Male"];
+let genderList = ["Select Gender", "Female", "Male"];
 for (let i = 0; i < genderList.length; i++) {
     let option = document.createElement("option");
-    option.setAttribute("value", genderList[i]);
+    if (i === 0) {
+        option.setAttribute("value", "none");
+    }
+    else {
+        option.setAttribute("value", genderList[i]);
+    }
     option.text = genderList[i];
     dropDown.appendChild(option);
 }
@@ -26,10 +31,15 @@ const dropDown2 = document.createElement("SELECT");
 dropDown2.setAttribute("id", "race");
 dropDown2.setAttribute("onclick", "changeImg()");
 (_d = document.getElementById("card")) === null || _d === void 0 ? void 0 : _d.appendChild(dropDown2);
-let raceList = ["Fairy", "Centaur", "Genasi", "Triton"];
+let raceList = ["Select Race", "Fairy", "Centaur", "Genasi", "Triton"];
 for (let index = 0; index < raceList.length; index++) {
     let option = document.createElement("option");
-    option.setAttribute("value", raceList[index]);
+    if (index === 0) {
+        option.setAttribute("value", "none");
+    }
+    else {
+        option.setAttribute("value", raceList[index]);
+    }
     option.text = raceList[index];
     dropDown2.appendChild(option);
 }
@@ -65,6 +75,8 @@ function changeImgClass() {
         classImage === null || classImage === void 0 ? void 0 : classImage.setAttribute("src", "");
     }
 }
+const raceImage = document.getElementById("characterImage");
+raceImage === null || raceImage === void 0 ? void 0 : raceImage.setAttribute("src", "img/default.jpg");
 const characterGender = document.getElementById("gender");
 const characterRace = document.getElementById("race");
 characterRace === null || characterRace === void 0 ? void 0 : characterRace.addEventListener("change", characterImgRace);
@@ -74,7 +86,6 @@ function characterImgRace() {
     const chosenGender = document.getElementById("gender");
     const raceValue = chosenRace === null || chosenRace === void 0 ? void 0 : chosenRace.value;
     const genderValue = chosenGender === null || chosenGender === void 0 ? void 0 : chosenGender.value;
-    const raceImage = document.getElementById("characterImage");
     if (raceValue === "Centaur" && genderValue == "Female")
         raceImage === null || raceImage === void 0 ? void 0 : raceImage.setAttribute("src", "img/centaur_female.jpg");
     if (raceValue === "Centaur" && genderValue == "Male")
@@ -91,4 +102,6 @@ function characterImgRace() {
         raceImage === null || raceImage === void 0 ? void 0 : raceImage.setAttribute("src", "img/genasi_female.jpg");
     if (raceValue === "Genasi" && genderValue == "Male")
         raceImage === null || raceImage === void 0 ? void 0 : raceImage.setAttribute("src", "img/genasi_male.jpg");
+    if (raceValue === "none" || genderValue == "none")
+        raceImage === null || raceImage === void 0 ? void 0 : raceImage.setAttribute("src", "img/default.jpg");
 }

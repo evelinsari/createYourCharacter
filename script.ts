@@ -20,10 +20,14 @@ dropDown.setAttribute("id", "gender")
 dropDown.setAttribute("id", "gender")
 document.getElementById("card")?.appendChild(dropDown)
 
-let genderList: string [] = ["Female", "Male"]
+let genderList: string [] = ["Select Gender","Female", "Male"]
 for (let i = 0; i < genderList.length; i++) {
     let option = document.createElement("option");
-    option.setAttribute("value", genderList[i]);
+    if (i === 0) {
+        option.setAttribute("value", "none"); 
+    } else {
+        option.setAttribute("value", genderList[i])
+    }
     option.text = genderList[i];
     dropDown.appendChild(option);}
 
@@ -33,10 +37,15 @@ dropDown2.setAttribute("onclick", "changeImg()")
 
 document.getElementById("card")?.appendChild(dropDown2)
 
-let raceList: string [] = ["Fairy", "Centaur", "Genasi", "Triton"]
+let raceList: string [] = ["Select Race","Fairy", "Centaur", "Genasi", "Triton"]
 for (let index = 0; index < raceList.length; index++) {
     let option = document.createElement("option")
-    option.setAttribute("value", raceList[index])
+    if (index === 0) {
+        option.setAttribute("value", "none")
+    } else {
+        option.setAttribute("value", raceList[index])
+        
+    }
     option.text = raceList[index]
     dropDown2.appendChild(option)
 }
@@ -67,9 +76,9 @@ classSelect?.addEventListener("change", changeImgClass)
 
 function changeImgClass() {
 
-    const classSelected = document.getElementById("class")
-    const classValue = classSelected?.value
-    const classImage = document.getElementById("classImage")
+    let classSelected = document.getElementById("class")
+    let classValue = classSelected?.value
+    let classImage = document.getElementById("classImage")
 
     if (classValue === "Wizard") {
         classImage?.setAttribute("src", "img/wizard.png")
@@ -80,6 +89,10 @@ function changeImgClass() {
       }
      
 }
+const raceImage = document.getElementById("characterImage")
+raceImage?.setAttribute("src", "img/default.jpg")
+
+
 
 const characterGender = document.getElementById("gender")
 const characterRace = document.getElementById("race")
@@ -87,11 +100,10 @@ characterRace?.addEventListener("change", characterImgRace)
 characterGender?.addEventListener("change", characterImgRace)
 
 function characterImgRace() {
-    const chosenRace = document.getElementById("race");
-    const chosenGender = document.getElementById("gender");
-    const raceValue = chosenRace?.value
-    const genderValue = chosenGender?.value
-    const raceImage = document.getElementById("characterImage")
+    let chosenRace = document.getElementById("race");
+    let chosenGender = document.getElementById("gender");
+    let raceValue = chosenRace?.value
+    let genderValue = chosenGender?.value
 
     if (raceValue === "Centaur" && genderValue == "Female") 
     raceImage?.setAttribute("src", "img/centaur_female.jpg")
@@ -117,6 +129,8 @@ function characterImgRace() {
     if (raceValue === "Genasi" && genderValue == "Male") 
     raceImage?.setAttribute("src", "img/genasi_male.jpg")
 
+    if (raceValue === "none" || genderValue =="none")
+    raceImage?.setAttribute("src", "img/default.jpg")
 }
 
 
