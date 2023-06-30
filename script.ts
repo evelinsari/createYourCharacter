@@ -8,10 +8,10 @@ userName.setAttribute("id", "nameValue")
 document.getElementById("card")?.appendChild(userName)
 
 
-const userNameText = document.getElementById("nameValue")
+const userNameText = document.getElementById("nameValue")as HTMLSelectElement
 userInputName?.addEventListener("input", updateValue)
-function updateValue(e:string) {  
-userNameText.textContent = e.target.value
+function updateValue(e:Event) {  
+userNameText.textContent = (e.target as HTMLSelectElement).value
 }
 
 
@@ -81,7 +81,7 @@ classSelect?.addEventListener("change", changeImgClass)
 
 function changeImgClass() {
 
-    let classSelected = document.getElementById("class")
+    let classSelected = document.getElementById("class")as HTMLSelectElement
     let classValue = classSelected?.value
     let classImage = document.getElementById("classImage")
 
@@ -106,8 +106,8 @@ characterRace?.addEventListener("change", characterImgRace)
 characterGender?.addEventListener("change", characterImgRace)
 
 function characterImgRace() {
-    let chosenRace = document.getElementById("race");
-    let chosenGender = document.getElementById("gender");
+    let chosenRace = document.getElementById("race") as HTMLSelectElement;
+    let chosenGender = document.getElementById("gender") as HTMLSelectElement;
     let raceValue = chosenRace?.value
     let genderValue = chosenGender?.value
 
